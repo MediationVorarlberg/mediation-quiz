@@ -671,7 +671,7 @@ function renderMulti(q, body) {
   q.opts.forEach((opt, i) => {
     const btn = document.createElement('button');
     btn.className = 'opt multi';
-    btn.innerHTML = `<span class="marker">✓</span><span>${opt}</span>`;
+    btn.innerHTML = `<span class="marker"></span><span>${opt}</span>`;
     btn.onclick = () => toggleMulti(i, btn, q);
     wrap.appendChild(btn);
   });
