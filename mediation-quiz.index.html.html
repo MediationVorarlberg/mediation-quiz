@@ -600,7 +600,7 @@ const QUESTIONS = [
   {
     id: 'q4', type: 'scale',
     num: 'Frage 4 · Selbstreflexion',
-    text: 'Wie bereit bist du, einen Konflikt mit Unterstützung einer Mediatorin zu lösen?',
+    text: 'Wie hoch ist deine Bereitschaft, einen Konflikt mit Unterstützung einer Mediatorin zu lösen?',
     hint: 'Denk an einen konkreten Konflikt – beruflich oder privat – und triff deine Entscheidung.',
     feedback: {
       ok:  '💚 Super! Der erste Schritt ist oft der schwerste. Ein kostenloses Erstgespräch zeigt dir, ob Mediation für deine Situation passt.',
@@ -695,7 +695,7 @@ function renderMulti(q, body) {
 function renderScale(q, body) {
   const wrap = document.createElement('div'); wrap.className = 'scale-wrap';
   const labels = document.createElement('div'); labels.className = 'scale-labels';
-  labels.innerHTML = '<span>gar nicht bereit</span><span>voll und ganz bereit</span>';
+  labels.innerHTML = '<span>keine Bereitschaft</span><span>sehr hoch</span>';
   wrap.appendChild(labels);
   const dots = document.createElement('div'); dots.className = 'scale-dots';
   const chosen = document.createElement('div'); chosen.className = 'scale-chosen'; chosen.id = 'scaleChosen';
