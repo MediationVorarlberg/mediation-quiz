@@ -426,7 +426,7 @@
     <div class="spoiler-tag">
       <s>Meditation</s> &nbsp;≠&nbsp; <strong>Mediation</strong> &nbsp;😉
     </div>
-    <a href="https://www.konsenswerkstatt.eu/uber-mich/" class="hdr-link" target="_blank">Wer steckt dahinter? →</a>
+    <a href="https://www.mediation-vorarlberg.at" class="hdr-link" target="_blank">Mehr über Mediation Vorarlberg →</a>
   </div>
 </div>
 
@@ -462,87 +462,21 @@
   <hr class="divider">
 
   <div id="contactArea">
-    <div class="contact-intro">Möchtest du mehr erfahren?</div>
-    <div class="contact-sub">Kein Verkaufsgespräch. Kein Druck. Nur ein offenes, kostenloses Erstgespräch – wenn du möchtest.</div>
-
-    <div class="privacy-note">
-      🔒 Deine Daten werden ausschließlich für ein mögliches Erstgespräch genutzt und nicht weitergegeben. Du kannst jederzeit widersprechen.
-    </div>
-
-    <div id="contactForm">
-      <div class="form-group">
-        <label>Wie sollen wir dich nennen? (optional)</label>
-        <input type="text" id="cName" placeholder="Dein Name">
-      </div>
-      <div class="form-group">
-        <label>Telefon (optional)</label>
-        <input type="tel" id="cPhone" placeholder="+43 ...">
-      </div>
-      <div class="form-group">
-        <label>E-Mail-Adresse</label>
-        <input type="email" id="cEmail" placeholder="deine@email.at">
-      </div>
-      <div class="form-group">
-        <label>Themenbereich (optional, Mehrfachauswahl möglich)</label>
-        <div class="themen-grid" id="themenGrid">
-          <label class="thema-opt" onclick="toggleThema(this)">
-            <span class="thema-check"></span>
-            <span>Partnerschaft / Beziehung</span>
-          </label>
-          <label class="thema-opt" onclick="toggleThema(this)">
-            <span class="thema-check"></span>
-            <span>Trennung / Scheidung</span>
-          </label>
-          <label class="thema-opt" onclick="toggleThema(this)">
-            <span class="thema-check"></span>
-            <span>Familie / Freundschaft</span>
-          </label>
-          <label class="thema-opt" onclick="toggleThema(this)">
-            <span class="thema-check"></span>
-            <span>Arbeitsplatz / Kollegen</span>
-          </label>
-          <label class="thema-opt" onclick="toggleThema(this)">
-            <span class="thema-check"></span>
-            <span>Nachbarschaft / Verein</span>
-          </label>
-          <label class="thema-opt" onclick="toggleThema(this)">
-            <span class="thema-check"></span>
-            <span>Erbschaft / Immobilien</span>
-          </label>
-          <label class="thema-opt" onclick="toggleThema(this)">
-            <span class="thema-check"></span>
-            <span>Anderes / generelles Interesse</span>
-          </label>
-        </div>
-      </div>
-      <div class="form-group">
-        <label>Kurze Beschreibung (optional)</label>
-        <textarea id="cMsg" placeholder="Was beschäftigt dich? Völlig unverbindlich …"></textarea>
-      </div>
-      <button class="btn-contact" onclick="submitContact()">
-        Kostenloses Erstgespräch anfragen
-      </button>
-      <a href="https://www.konsenswerkstatt.eu/uber-mich/" class="btn-skip" target="_blank">
-        Ohne Kontaktanfrage – mehr über uns erfahren →
-      </a>
-    </div>
-
-    <div id="contactSuccess" style="display:none">
-      <div class="contact-success">
-        <div class="big-check">🌿</div>
-        <h3>Danke – wir melden uns!</h3>
-        <p>Deine Anfrage ist bei uns angekommen. Eine unserer Mediatorinnen meldet sich persönlich bei dir.<br>
-        <a href="https://www.konsenswerkstatt.eu/uber-mich/" class="lp-link" target="_blank">Mehr über uns → konsenswerkstatt.eu</a></p>
-      </div>
-    </div>
+  <div class="contact-intro">Vielen Dank für deine Teilnahme.</div>
+  <div class="contact-sub">
+    Wenn du Fragen zur Mediation hast, findest du auf unserer Website Informationen, Ansprechpartnerinnen und Termine für unsere kostenlose Online-Sprechstunde.
   </div>
 
+  <a href="https://mediation-vorarlberg.at" class="btn-skip" target="_blank">
+    Zu Mediation Vorarlberg →
+  </a>
+</div>
   <button class="btn-restart" onclick="restartQuiz()">↩ Quiz nochmal starten</button>
 </div>
 
 <script>
 // ── LANDINGPAGE URL – hier später austauschen ─────────────────────────────
-const LP = 'https://www.konsenswerkstatt.eu/uber-mich/';
+const LP = 'https://www.mediation-vorarlberg.at';
 
 // ── FRAGEN (Q6 entfernt) ──────────────────────────────────────────────────
 const QUESTIONS = [
@@ -628,7 +562,7 @@ const QUESTIONS = [
 
 // ── STATE ─────────────────────────────────────────────────────────────────
 let cur = 0, knowledgeScore = 0, answered = false, selectedMulti = [];
-const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbwrBaEVxP9NIMEBQQwpZWj9OkhMNUTKFg28QkockC01OcZBBqOsGb6t9lOiB1fQY3h2/exec';
+
 const quizAnswers = {}; // speichert alle Antworten
 
 // ── THEMEN CHECKBOXES ─────────────────────────────────────────────────────
@@ -791,62 +725,12 @@ function showResult() {
   }
   document.getElementById('resTitle').textContent = title;
   document.getElementById('resSub').textContent = sub;
-  // Antworten anonym an Google Sheets senden
-  fetch(GOOGLE_SHEET_URL, {
-    method: "POST",
-    mode: "no-cors",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      q1: quizAnswers["q1"] || "-",
-      q2: quizAnswers["q2"] || "-",
-      q3: quizAnswers["q3"] || "-",
-      q4: quizAnswers["q4"] || "-",
-      q5: quizAnswers["q5"] || "-",
-      name: "", email: "", phone: "", themen: "", message: "(anonym)"
-    })
-  });
-}
-
-// ── CONTACT ───────────────────────────────────────────────────────────────
-async function submitContact() {
-  const name  = document.getElementById('cName').value.trim();
-  const email = document.getElementById('cEmail').value.trim();
-  const phone = document.getElementById('cPhone').value.trim();
-  const themen = getSelectedThemen();
-  const msg   = document.getElementById('cMsg').value.trim();
-  if (!email) { alert('Bitte gib deine E-Mail-Adresse an, damit wir dich kontaktieren können.'); return; }
-
-  const payload = {
-    q1: quizAnswers['q1'] || '–',
-    q2: quizAnswers['q2'] || '–',
-    q3: quizAnswers['q3'] || '–',
-    q4: quizAnswers['q4'] || '–',
-    q5: quizAnswers['q5'] || '–',
-    name, email, phone,
-    themen: themen.join(', '),
-    message: msg
-  };
-
-  // An Google Sheets senden
-  fetch(GOOGLE_SHEET_URL, {
-    method: 'POST',
-    mode: 'no-cors',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload)
-  });
-
-  // Formular ausblenden (no-cors gibt keine Antwort zurück, daher direkt)
-  document.getElementById('contactForm').style.display = 'none';
-  document.getElementById('contactSuccess').style.display = 'block';
-}
-
+  }
 function restartQuiz() {
   cur = 0; knowledgeScore = 0; answered = false; selectedMulti = [];
   document.getElementById('resultCard').style.display = 'none';
   document.getElementById('quizCard').style.display = 'block';
-  document.getElementById('contactForm').style.display = 'block';
-  document.getElementById('contactSuccess').style.display = 'none';
-  document.getElementById('contactArea').style.display = 'block';
+   document.getElementById('contactArea').style.display = 'block';
   document.querySelectorAll('.thema-opt.checked').forEach(el => el.classList.remove('checked'));
   render();
 }
