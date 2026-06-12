@@ -497,12 +497,12 @@ function render() {
   fb.className = 'feedback'; fb.innerHTML = '';
   const btn = document.getElementById('nextBtn');
   btn.style.display = 'none';
-  btn.textContent = cur < total - 1 ? 'Weiter →' : 'Auswertung →';
+  btn.textContent = cur < total - 1 ? 'Weiter →' : 'Fertig! →';
   const card = document.getElementById('quizCard');
   card.style.animation = 'none'; void card.offsetHeight; card.style.animation = 'fadeUp 0.4s ease both';
   const body = document.getElementById('qBody'); body.innerHTML = '';
   if (q.type === 'single') renderSingle(q, body);
-  else if (q.type === 'multi') renderMulti(q, body);
+  else if (q.type === 'multi') renderMulti(q, body)
   else if (q.type === 'scale') renderScale(q, body);
 }
 
